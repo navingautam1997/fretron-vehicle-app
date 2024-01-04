@@ -1,0 +1,15 @@
+<p>
+    <mat-toolbar color="primary">
+      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+      <span>Vehicle App</span>
+        <input type="text" matInput placeholder="Search" class="input-search" (keyup)="searchVehicle($event)">
+        <!-- <button matSuffix mat-button><mat-icon >search</mat-icon></button> -->
+        <!-- <mat-icon >search</mat-icon> -->
+      <span class="example-spacer"></span>
+      <button mat-raised-button class="add-btn" (click)="openDialog()" aria-label="Example icon-button with heart icon">
+        Add Vehicle
+      </button>
+    </mat-toolbar>
+  </p>

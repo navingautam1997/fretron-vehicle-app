@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th>Vehicle Registration Number</th>
+            <th>Vehicle Type</th>
+            <th>Vehicle Model</th>
+            <th>Vehicle Chassis Number</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vehicleInfo of vehicleInfoList; let i = index">
+            <td>{{vehicleInfo?.vehicle?.vehicleRegistrationNumber}}</td>
+            <td>{{vehicleInfo?.vehicle?.vehicleType}}</td>
+            <td>{{vehicleInfo?.vehicle?.vehicleModel}}</td>
+            <td>{{vehicleInfo?.vehicle?.chassisNumber}}</td>
+            <td>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openEditDialog(vehicleInfo?.vehicle, i)">Edit</button>
+                    <button mat-menu-item (click)="openDeletePopup(vehicleInfo?.vehicle?.vehicleRegistrationNumber, i)">Delete</button>
+                </mat-menu>
+            </td>
+        </tr>
+    </tbody>
+</table>
+  
+  

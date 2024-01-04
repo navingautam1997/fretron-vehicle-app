@@ -1,0 +1,11 @@
+.add-btn{
+    margin-left: auto;
+}
+
+.input-search{
+    padding: 0.5rem;
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    border: solid #fff 1px;
+    width: 40%;
+}

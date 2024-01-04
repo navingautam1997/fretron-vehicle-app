@@ -1,0 +1,8 @@
+<div class="" style=" display:flex; justify-content: space-between; padding: 1rem;">
+    <h3>Are you sure ? you want to delete <strong>{{data.vehicleRegistrationNumber}}</strong></h3>
+    <button mat-button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+</div>
+<div class="" style="padding: 1rem;">
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="onProceed()">Proceed</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="onNoClick()">Close</button>
+</div>

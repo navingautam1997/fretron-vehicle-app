@@ -1,0 +1,51 @@
+<div class="" style="display: flex; justify-content: space-between; padding-top: 1rem; padding-left: 1rem; padding-right: 1rem; padding-bottom: 0.5rem;">
+  <h2>Please Add Your Vehicle Details</h2>
+  <button mat-button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+</div>
+<mat-divider></mat-divider>
+<div class="" style="display: flex; justify-content: space-around; padding-top: 1.5rem;">
+    <mat-form-field appearance="outline">
+      <mat-label>vehicle registration No</mat-label>
+      <input type="text" name="vehicalNumber" #vehicalNumber="ngModel" required placeholder="vehicle registration No" matInput [(ngModel)]="data.vehicleRegistrationNumber">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <!-- <mat-label>Vehicle Type</mat-label>
+      <input type="text" name="vehicleType" #vehicleType="ngModel" required placeholder="vehicle Type" matInput [(ngModel)]="data.vehicleType"> -->
+        <!-- <mat-label>Vehicle Type</mat-label>
+        <mat-select name="vehicleType" #vehicleType="ngModel" required [(ngModel)]="data.vehicleType" placeholder="vehicle Type"> -->
+          <!-- <mat-select-trigger>
+            {{vehicleType.value?.[0] || ''}}
+            <span *ngIf="(vehicleType.value?.length || 0) > 1" class="example-additional-selection">
+              (+{{(vehicleType.value?.length || 0) - 1}} {{vehicleType.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger> -->
+          <!-- <input type="text" placeholder="Search" style="width: 93%; padding: 5px;" class="" (keyup)="searchInput$.next($event)"> -->
+          <mat-label>Vehicle Type</mat-label>
+          <input type="text" matInput placeholder="Search" [formControl]="myControl" [(ngModel)]="data.vehicleType" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-option *ngFor="let vehicleType of vehicleTypeList" [value]="vehicleType?.name">{{vehicleType?.name}}</mat-option>
+        </mat-select> -->
+    </mat-form-field>
+</div>
+
+<div class="" style="display: flex; justify-content: space-around;">
+    <mat-form-field appearance="outline">
+      <mat-label>vehicle Chassis No</mat-label>
+      <input type="text" placeholder="Vehical Chassis No" matInput required [(ngModel)]="data.chassisNumber">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Vehicle Model</mat-label>
+      <input type="text" placeholder="Vehical Model" name="vehicleModel" #vehicleModel="ngModel" matInput required [(ngModel)]="data.vehicleModel">
+    </mat-form-field>
+</div>
+
+
+<div style="text-align: right; padding: 1rem;">
+  <button mat-button [mat-dialog-close]="data" (click)="openSuccessPopup()" cdkFocusInitial [disabled]="vehicalNumber.errors?.['required'] ">Submit</button>
+</div>
+
+<!-- || vehicleType.errors?.['required'] -->
